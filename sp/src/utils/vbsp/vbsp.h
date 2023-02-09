@@ -19,6 +19,7 @@
 #include "qfiles.h"
 #include "utilmatlib.h"
 #include "ChunkFile.h"
+#include "MOD_CUSTOM_DEFINES.h"
 
 #ifdef WIN32
 #pragma warning( disable: 4706 )
@@ -607,7 +608,12 @@ void SaveVertexNormals( void );
 
 //=============================================================================
 // cubemap.cpp
+#ifdef PARALLAX_CUBEMAP
+extern char* g_pParallaxObbStrs[MAX_MAP_CUBEMAPSAMPLES];
+void Cubemap_InsertSample(const Vector& origin, int size, char* pParallaxObbStr);
+#else
 void Cubemap_InsertSample( const Vector& origin, int size );
+#endif // PARALLAX_CUBEMAP
 void Cubemap_CreateDefaultCubemaps( void );
 void Cubemap_SaveBrushSides( const char *pSideListStr );
 void Cubemap_FixupBrushSidesMaterials( void );

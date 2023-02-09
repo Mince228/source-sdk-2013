@@ -1007,7 +1007,7 @@ int RunVBSP( int argc, char **argv )
 			Msg ("snap axial = true\n");
 			g_snapAxialPlanes = true;
 		}
-#if 0
+#if 1
 		else if (!Q_stricmp(argv[i], "-maxlightmapdim"))
 		{
 			g_maxLightmapDimension = atof(argv[i+1]);
